@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://public-frontend-cos.metadl.com/mgx/img/favicon.png"
+      type="image/png"
+    />
+    <title>TradePro - Advanced Trading Platform</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <i class="fas fa-chart-line"></i>
+          TradePro
+        </div>
+        <ul class="nav-menu">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#trading" class="nav-link">Trading</a></li>
+          <li><a href="#currencies" class="nav-link">Currencies</a></li>
+          <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+          <li><a href="#expenses" class="nav-link">Expenses</a></li>
+        </ul>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1 class="hero-title">Advanced Trading Platform</h1>
+          <p class="hero-subtitle">
+            Trade cryptocurrencies, stocks, forex, and commodities with
+            professional-grade tools and real-time analytics.
+          </p>
+          <div class="hero-buttons">
+            <button id="startTradingBtn" class="btn btn-primary">
+              Start Trading
+            </button>
+            <button id="viewDashboardBtn" class="btn btn-secondary">
+              View Dashboard
+            </button>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img
+            src="https://th.bing.com/th/id/R.6a8346e2f0af8c2d75db43cc53e22c25?rik=3Puv%2f7daz8jcdg&riu=http%3a%2f%2fgetafirstlife.com%2fwp-content%2fuploads%2f2016%2f08%2fBinary-Options-Trading.jpg&ehk=gjAoJVlnGWakAIb3OLqcwNqcTwNVwswVHMU5vKPYI0w%3d&risl=&pid=ImgRaw&r=0"
+            alt="Trading Charts"
+          />
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number" data-target="50000">0</div>
+          <p>Active Traders</p>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="2500000">0</div>
+          <p>Daily Volume</p>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="150">0</div>
+          <p>Trading Pairs</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trading Section -->
+    <section id="trading" class="trading-section">
+      <div class="container">
+        <h2 class="section-title">Trading Markets</h2>
+        <div class="trading-grid">
+          <div class="trading-card" data-market="stocks">
+            <div class="card-icon">
+              <i class="fas fa-chart-bar"></i>
+            </div>
+            <h3>Stocks</h3>
+            <p>
+              Trade leading stocks from major exchanges worldwide with
+              competitive spreads.
+            </p>
+            <div class="market-stats">
+              <div class="price">$4,250.67</div>
+              <div class="change positive">+2.34%</div>
+            </div>
+            <button class="btn btn-trade" data-action="trade">Trade Now</button>
+          </div>
+
+          <div class="trading-card" data-market="crypto">
+            <div class="card-icon">
+              <i class="fab fa-bitcoin"></i>
+            </div>
+            <h3>Cryptocurrency</h3>
+            <p>
+              Access major cryptocurrencies with advanced charting and analysis
+              tools.
+            </p>
+            <div class="market-stats">
+              <div class="price">$43,567.89</div>
+              <div class="change positive">+5.67%</div>
+            </div>
+            <button class="btn btn-trade" data-action="trade">Trade Now</button>
+          </div>
+
+          <div class="trading-card" data-market="forex">
+            <div class="card-icon">
+              <i class="fas fa-globe-americas"></i>
+            </div>
+            <h3>Forex</h3>
+            <p>
+              Trade major currency pairs with tight spreads and professional
+              execution.
+            </p>
+            <div class="market-stats">
+              <div class="price">1.0856</div>
+              <div class="change negative">-0.23%</div>
+            </div>
+            <button class="btn btn-trade" data-action="trade">Trade Now</button>
+          </div>
+
+          <div class="trading-card" data-market="commodities">
+            <div class="card-icon">
+              <i class="fas fa-coins"></i>
+            </div>
+            <h3>Commodities</h3>
+            <p>
+              Invest in precious metals, energy, and agricultural commodities.
+            </p>
+            <div class="market-stats">
+              <div class="price">$1,987.45</div>
+              <div class="change positive">+1.23%</div>
+            </div>
+            <button class="btn btn-trade" data-action="trade">Trade Now</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Currencies Section -->
+    <section id="currencies" class="currencies-section">
+      <div class="container">
+        <h2 class="section-title">Live Currency Prices</h2>
+
+        <div class="currency-search">
+          <div class="search-container">
+            <input
+              type="text"
+              id="currencySearch"
+              placeholder="Search currencies (BTC, ETH, EUR, etc.)"
+            />
+            <button id="searchCurrencyBtn" class="btn btn-primary">
+              Search
+            </button>
+          </div>
+        </div>
+
+        <div class="currency-grid">
+          <!-- Bitcoin -->
+          <div class="currency-card" data-symbol="BTC">
+            <div class="currency-header">
+              <div class="currency-info">
+                <img
+                  src="https://cryptologos.cc/logos/bitcoin-btc-logo.png"
+                  alt="Bitcoin"
+                  class="currency-icon"
+                />
+                <div>
+                  <h3>Bitcoin</h3>
+                  <span class="currency-symbol">BTC</span>
+                </div>
+              </div>
+              <div id="btc-trend" class="trend-indicator rising">
+                <i class="fas fa-arrow-up"></i>
+              </div>
+            </div>
+            <div class="currency-price">
+              <div id="btc-price" class="price">$67,234.50</div>
+              <div id="btc-change" class="change positive">+2.34%</div>
+            </div>
+            <div class="currency-chart">
+              <canvas id="btc-chart" width="300" height="100"></canvas>
+            </div>
+            <button class="btn view-details" data-currency="BTC">
+              View Details
+            </button>
+          </div>
+
+          <!-- Ethereum -->
+          <div class="currency-card" data-symbol="ETH">
+            <div class="currency-header">
+              <div class="currency-info">
+                <img
+                  src="https://cryptologos.cc/logos/ethereum-eth-logo.png"
+                  alt="Ethereum"
+                  class="currency-icon"
+                />
+                <div>
+                  <h3>Ethereum</h3>
+                  <span class="currency-symbol">ETH</span>
+                </div>
+              </div>
+              <div id="eth-trend" class="trend-indicator rising">
+                <i class="fas fa-arrow-up"></i>
+              </div>
+            </div>
+            <div class="currency-price">
+              <div id="eth-price" class="price">$3,456.78</div>
+              <div id="eth-change" class="change positive">+1.87%</div>
+            </div>
+            <div class="currency-chart">
+              <canvas id="eth-chart" width="300" height="100"></canvas>
+            </div>
+            <button class="btn view-details" data-currency="ETH">
+              View Details
+            </button>
+          </div>
+
+          <!-- Cardano -->
+          <div class="currency-card" data-symbol="ADA">
+            <div class="currency-header">
+              <div class="currency-info">
+                <img
+                  src="https://cryptologos.cc/logos/cardano-ada-logo.png"
+                  alt="Cardano"
+                  class="currency-icon"
+                />
+                <div>
+                  <h3>Cardano</h3>
+                  <span class="currency-symbol">ADA</span>
+                </div>
+              </div>
+              <div id="ada-trend" class="trend-indicator falling">
+                <i class="fas fa-arrow-down"></i>
+              </div>
+            </div>
+            <div class="currency-price">
+              <div id="ada-price" class="price">$0.5234</div>
+              <div id="ada-change" class="change negative">-0.89%</div>
+            </div>
+            <div class="currency-chart">
+              <canvas id="ada-chart" width="300" height="100"></canvas>
+            </div>
+            <button class="btn view-details" data-currency="ADA">
+              View Details
+            </button>
+          </div>
+
+          <!-- Polkadot -->
+          <div class="currency-card" data-symbol="DOT">
+            <div class="currency-header">
+              <div class="currency-info">
+                <img
+                  src="https://cryptologos.cc/logos/polkadot-new-dot-logo.png"
+                  alt="Polkadot"
+                  class="currency-icon"
+                />
+                <div>
+                  <h3>Polkadot</h3>
+                  <span class="currency-symbol">DOT</span>
+                </div>
+              </div>
+              <div id="dot-trend" class="trend-indicator rising">
+                <i class="fas fa-arrow-up"></i>
+              </div>
+            </div>
+            <div class="currency-price">
+              <div id="dot-price" class="price">$7.89</div>
+              <div id="dot-change" class="change positive">+3.21%</div>
+            </div>
+            <div class="currency-chart">
+              <canvas id="dot-chart" width="300" height="100"></canvas>
+            </div>
+            <button class="btn view-details" data-currency="DOT">
+              View Details
+            </button>
+          </div>
+
+          <!-- Euro -->
+          <div class="currency-card" data-symbol="EUR">
+            <div class="currency-header">
+              <div class="currency-info">
+                <span class="currency-flag">🇪🇺</span>
+                <div>
+                  <h3>Euro</h3>
+                  <span class="currency-symbol">EUR/USD</span>
+                </div>
+              </div>
+              <div id="eur-trend" class="trend-indicator falling">
+                <i class="fas fa-arrow-down"></i>
+              </div>
+            </div>
+            <div class="currency-price">
+              <div id="eur-price" class="price">$1.0734</div>
+              <div id="eur-change" class="change negative">-0.12%</div>
+            </div>
+            <div class="currency-chart">
+              <canvas id="eur-chart" width="300" height="100"></canvas>
+            </div>
+            <button class="btn view-details" data-currency="EUR">
+              View Details
+            </button>
+          </div>
+
+          <!-- British Pound -->
+          <div class="currency-card" data-symbol="GBP">
+            <div class="currency-header">
+              <div class="currency-info">
+                <span class="currency-flag">🇬🇧</span>
+                <div>
+                  <h3>British Pound</h3>
+                  <span class="currency-symbol">GBP/USD</span>
+                </div>
+              </div>
+              <div id="gbp-trend" class="trend-indicator rising">
+                <i class="fas fa-arrow-up"></i>
+              </div>
+            </div>
+            <div class="currency-price">
+              <div id="gbp-price" class="price">$1.2567</div>
+              <div id="gbp-change" class="change positive">+0.23%</div>
+            </div>
+            <div class="currency-chart">
+              <canvas id="gbp-chart" width="300" height="100"></canvas>
+            </div>
+            <button class="btn view-details" data-currency="GBP">
+              View Details
+            </button>
+          </div>
+        </div>
+
+        <!-- Show More Button -->
+        <div class="show-more-container">
+          <button id="showMoreBtn" class="show-more-btn">
+            <i class="fas fa-plus"></i> Show More Currencies
+          </button>
+        </div>
+
+        <!-- Hidden Currencies -->
+        <div id="hiddenCurrencies" class="hidden-currencies">
+          <!-- Solana -->
+          <div class="currency-card" data-symbol="SOL">
+            <div class="currency-header">
+              <div class="currency-info">
+                <img
+                  src="https://cryptologos.cc/logos/solana-sol-logo.png"
+                  alt="Solana"
+                  class="currency-icon"
+                />
+                <div>
+                  <h3>Solana</h3>
+                  <span class="currency-symbol">SOL</span>
+                </div>
+              </div>
+              <div id="sol-trend" class="trend-indicator rising">
+                <i class="fas fa-arrow-up"></i>
+              </div>
+            </div>
+            <div class="currency-price">
+              <div id="sol-price" class="price">$98.45</div>
+              <div id="sol-change" class="change positive">+4.12%</div>
+            </div>
+            <div class="currency-chart">
+              <canvas id="sol-chart" width="300" height="100"></canvas>
+            </div>
+            <button class="btn view-details" data-currency="SOL">
+              View Details
+            </button>
+          </div>
+
+          <!-- Polygon -->
+          <div class="currency-card" data-symbol="MATIC">
+            <div class="currency-header">
+              <div class="currency-info">
+                <img
+                  src="https://cryptologos.cc/logos/polygon-matic-logo.png"
+                  alt="Polygon"
+                  class="currency-icon"
+                />
+                <div>
+                  <h3>Polygon</h3>
+                  <span class="currency-symbol">MATIC</span>
+                </div>
+              </div>
+              <div id="matic-trend" class="trend-indicator falling">
+                <i class="fas fa-arrow-down"></i>
+              </div>
+            </div>
+            <div class="currency-price">
+              <div id="matic-price" class="price">$0.8923</div>
+              <div id="matic-change" class="change negative">-1.45%</div>
+            </div>
+            <div class="currency-chart">
+              <canvas id="matic-chart" width="300" height="100"></canvas>
+            </div>
+            <button class="btn view-details" data-currency="MATIC">
+              View Details
+            </button>
+          </div>
+
+          <!-- Avalanche -->
+          <div class="currency-card" data-symbol="AVAX">
+            <div class="currency-header">
+              <div class="currency-info">
+                <img
+                  src="https://cryptologos.cc/logos/avalanche-avax-logo.png"
+                  alt="Avalanche"
+                  class="currency-icon"
+                />
+                <div>
+                  <h3>Avalanche</h3>
+                  <span class="currency-symbol">AVAX</span>
+                </div>
+              </div>
+              <div id="avax-trend" class="trend-indicator rising">
+                <i class="fas fa-arrow-up"></i>
+              </div>
+            </div>
+            <div class="currency-price">
+              <div id="avax-price" class="price">$34.67</div>
+              <div id="avax-change" class="change positive">+2.89%</div>
+            </div>
+            <div class="currency-chart">
+              <canvas id="avax-chart" width="300" height="100"></canvas>
+            </div>
+            <button class="btn view-details" data-currency="AVAX">
+              View Details
+            </button>
+          </div>
+
+          <!-- Chainlink -->
+          <div class="currency-card" data-symbol="LINK">
+            <div class="currency-header">
+              <div class="currency-info">
+                <img
+                  src="https://cryptologos.cc/logos/chainlink-link-logo.png"
+                  alt="Chainlink"
+                  class="currency-icon"
+                />
+                <div>
+                  <h3>Chainlink</h3>
+                  <span class="currency-symbol">LINK</span>
+                </div>
+              </div>
+              <div id="link-trend" class="trend-indicator rising">
+                <i class="fas fa-arrow-up"></i>
+              </div>
+            </div>
+            <div class="currency-price">
+              <div id="link-price" class="price">$14.56</div>
+              <div id="link-change" class="change positive">+1.78%</div>
+            </div>
+            <div class="currency-chart">
+              <canvas id="link-chart" width="300" height="100"></canvas>
+            </div>
+            <button class="btn view-details" data-currency="LINK">
+              View Details
+            </button>
+          </div>
+
+          <!-- Uniswap -->
+          <div class="currency-card" data-symbol="UNI">
+            <div class="currency-header">
+              <div class="currency-info">
+                <img
+                  src="https://cryptologos.cc/logos/uniswap-uni-logo.png"
+                  alt="Uniswap"
+                  class="currency-icon"
+                />
+                <div>
+                  <h3>Uniswap</h3>
+                  <span class="currency-symbol">UNI</span>
+                </div>
+              </div>
+              <div id="uni-trend" class="trend-indicator falling">
+                <i class="fas fa-arrow-down"></i>
+              </div>
+            </div>
+            <div class="currency-price">
+              <div id="uni-price" class="price">$6.78</div>
+              <div id="uni-change" class="change negative">-2.34%</div>
+            </div>
+            <div class="currency-chart">
+              <canvas id="uni-chart" width="300" height="100"></canvas>
+            </div>
+            <button class="btn view-details" data-currency="UNI">
+              View Details
+            </button>
+          </div>
+
+          <!-- Litecoin -->
+          <div class="currency-card" data-symbol="LTC">
+            <div class="currency-header">
+              <div class="currency-info">
+                <img
+                  src="https://cryptologos.cc/logos/litecoin-ltc-logo.png"
+                  alt="Litecoin"
+                  class="currency-icon"
+                />
+                <div>
+                  <h3>Litecoin</h3>
+                  <span class="currency-symbol">LTC</span>
+                </div>
+              </div>
+              <div id="ltc-trend" class="trend-indicator rising">
+                <i class="fas fa-arrow-up"></i>
+              </div>
+            </div>
+            <div class="currency-price">
+              <div id="ltc-price" class="price">$72.34</div>
+              <div id="ltc-change" class="change positive">+0.89%</div>
+            </div>
+            <div class="currency-chart">
+              <canvas id="ltc-chart" width="300" height="100"></canvas>
+            </div>
+            <button class="btn view-details" data-currency="LTC">
+              View Details
+            </button>
+          </div>
+        </div>
+
+        <!-- Portfolio Allocation -->
+        <div class="portfolio-allocation">
+          <h3>Portfolio Allocation</h3>
+          <div class="allocation-container">
+            <div class="pie-chart-container">
+              <canvas id="portfolioPieChart" width="300" height="300"></canvas>
+            </div>
+            <div class="allocation-legend">
+              <div class="legend-item">
+                <div class="legend-color" style="background: #00ff88"></div>
+                <span>Bitcoin (35%)</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-color" style="background: #00cc66"></div>
+                <span>Ethereum (25%)</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-color" style="background: #009944"></div>
+                <span>Stocks (20%)</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-color" style="background: #007733"></div>
+                <span>Forex (15%)</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-color" style="background: #005522"></div>
+                <span>Others (5%)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- My Purchases Section -->
+        <div class="my-purchases">
+          <h3><i class="fas fa-shopping-cart"></i> My Purchases</h3>
+          <div id="purchasesList" class="purchases-list">
+            <!-- Purchases will be populated by JavaScript -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="dashboard-section">
+      <div class="container">
+        <h2 class="section-title">Trading Dashboard</h2>
+        <div class="dashboard-grid">
+          <div class="dashboard-card">
+            <h3>Portfolio Overview</h3>
+            <div class="portfolio-value">
+              <span class="value">$125,847.32</span>
+              <span class="change positive">+$2,347.89 (1.91%)</span>
+            </div>
+            <div class="chart-placeholder">
+              <canvas id="portfolioChart" width="300" height="150"></canvas>
+            </div>
+          </div>
+
+          <div class="dashboard-card">
+            <h3>Open Positions</h3>
+            <div class="positions-list">
+              <div class="position-item">
+                <div>
+                  <div class="symbol">BTC/USD</div>
+                  <div class="quantity">0.5 BTC</div>
+                </div>
+                <div class="pnl positive">+$1,234.56</div>
+              </div>
+              <div class="position-item">
+                <div>
+                  <div class="symbol">ETH/USD</div>
+                  <div class="quantity">2.3 ETH</div>
+                </div>
+                <div class="pnl positive">+$567.89</div>
+              </div>
+              <div class="position-item">
+                <div>
+                  <div class="symbol">AAPL</div>
+                  <div class="quantity">50 shares</div>
+                </div>
+                <div class="pnl negative">-$123.45</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-card">
+            <h3>Quick Actions</h3>
+            <div class="quick-actions">
+              <div id="buyBtn" class="action-btn">
+                <i class="fas fa-plus"></i>
+                <span>Buy</span>
+              </div>
+              <div id="sellBtn" class="action-btn">
+                <i class="fas fa-minus"></i>
+                <span>Sell</span>
+              </div>
+              <div id="analyzeBtn" class="action-btn">
+                <i class="fas fa-chart-line"></i>
+                <span>Analyze</span>
+              </div>
+              <div id="alertBtn" class="action-btn">
+                <i class="fas fa-bell"></i>
+                <span>Alerts</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-card">
+            <h3>Market Overview</h3>
+            <div class="market-overview">
+              <div class="market-item">
+                <div>
+                  <div class="market-name">S&P 500</div>
+                  <div class="market-price">4,567.89</div>
+                </div>
+                <div class="market-change positive">+1.23%</div>
+              </div>
+              <div class="market-item">
+                <div>
+                  <div class="market-name">NASDAQ</div>
+                  <div class="market-price">14,234.56</div>
+                </div>
+                <div class="market-change negative">-0.45%</div>
+              </div>
+              <div class="market-item">
+                <div>
+                  <div class="market-name">Gold</div>
+                  <div class="market-price">$1,987.45</div>
+                </div>
+                <div class="market-change positive">+0.78%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-section">
+      <div class="container">
+        <h2 class="section-title">Portfolio Performance</h2>
+        <div class="portfolio-grid">
+          <div class="portfolio-card">
+            <img
+              src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Stock Portfolio"
+            />
+            <div class="portfolio-content">
+              <h3>Stock Portfolio</h3>
+              <p>
+                Diversified portfolio of blue-chip stocks and growth companies
+                across various sectors.
+              </p>
+              <div class="portfolio-stats">
+                <div class="stat positive">+12.5%</div>
+                <div class="stat">$45,230</div>
+              </div>
+              <button id="viewStocksBtn" class="btn btn-primary">
+                View Details
+              </button>
+            </div>
+          </div>
+
+          <div class="portfolio-card">
+            <img
+              src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Crypto Portfolio"
+            />
+            <div class="portfolio-content">
+              <h3>Crypto Portfolio</h3>
+              <p>
+                Strategic allocation across major cryptocurrencies including
+                Bitcoin, Ethereum, and altcoins.
+              </p>
+              <div class="portfolio-stats">
+                <div class="stat positive">+28.7%</div>
+                <div class="stat">$67,890</div>
+              </div>
+              <button id="viewCryptoBtn" class="btn btn-primary">
+                View Details
+              </button>
+            </div>
+          </div>
+
+          <div class="portfolio-card">
+            <img
+              src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Forex Portfolio"
+            />
+            <div class="portfolio-content">
+              <h3>Forex Portfolio</h3>
+              <p>
+                Currency trading positions across major and minor pairs with
+                risk management strategies.
+              </p>
+              <div class="portfolio-stats">
+                <div class="stat negative">-2.1%</div>
+                <div class="stat">$12,727</div>
+              </div>
+              <button id="viewForexBtn" class="btn btn-primary">
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expense Tracker Section -->
+    <section id="expenses" class="expenses-section">
+      <div class="container">
+        <h2 class="section-title">Expense Tracker</h2>
+        <div class="expense-tracker">
+          <div class="expense-summary">
+            <div class="summary-card">
+              <h3>Total Expenses</h3>
+              <div id="totalExpenses" class="total-amount">$0.00</div>
+            </div>
+            <div class="summary-card">
+              <h3>This Month</h3>
+              <div id="monthExpenses" class="month-amount">$0.00</div>
+            </div>
+            <div class="summary-card">
+              <h3>Trading Fees</h3>
+              <div id="tradingFees" class="fees-amount">$0.00</div>
+            </div>
+          </div>
+
+          <div class="expense-form">
+            <h3>Add New Expense</h3>
+            <form id="expenseForm">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="expenseDescription"
+                  placeholder="Description"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="number"
+                  id="expenseAmount"
+                  placeholder="Amount"
+                  step="0.01"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <select id="expenseCategory" required>
+                  <option value="">Select Category</option>
+                  <option value="trading-fees">Trading Fees</option>
+                  <option value="platform-fees">Platform Fees</option>
+                  <option value="data-feeds">Data Feeds</option>
+                  <option value="software">Software</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary">Add Expense</button>
+            </form>
+          </div>
+
+          <div class="expense-list">
+            <h3>Recent Expenses</h3>
+            <div id="expensesList" class="expenses-container">
+              <!-- Expenses will be populated by JavaScript -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>TradePro</h3>
+            <p>Advanced trading platform for modern investors</p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#trading">Trading</a></li>
+              <li><a href="#currencies">Currencies</a></li>
+              <li><a href="#dashboard">Dashboard</a></li>
+              <li><a href="#expenses">Expenses</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <p>
+              Email:
+              <a
+                href="/cdn-cgi/l/email-protection"
+                class="__cf_email__"
+                data-cfemail="3e4d4b4e4e514c4a7e4a4c5f5a5b4e4c51105d5153"
+                >[email&#160;protected]</a
+              >
+            </p>
+            <p>Phone: +1 (555) 123-4567</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 TradePro. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Trading Modal -->
+    <div id="tradingModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modalTitle">Trade</h2>
+        <div class="trade-form">
+          <div class="form-group">
+            <label>Symbol</label>
+            <input type="text" id="tradeSymbol" placeholder="Enter symbol" />
+          </div>
+          <div class="form-group">
+            <label>Quantity</label>
+            <input
+              type="number"
+              id="tradeQuantity"
+              placeholder="Enter quantity"
+            />
+          </div>
+          <div class="form-group">
+            <label>Price</label>
+            <input
+              type="number"
+              id="tradePrice"
+              placeholder="Enter price"
+              step="0.01"
+            />
+          </div>
+          <div class="form-group">
+            <label>Order Type</label>
+            <select id="orderType">
+              <option value="market">Market Order</option>
+              <option value="limit">Limit Order</option>
+              <option value="stop">Stop Order</option>
+            </select>
+          </div>
+          <div class="modal-buttons">
+            <button class="btn btn-primary" id="executeTrade">
+              Execute Trade
+            </button>
+            <button class="btn btn-secondary" id="cancelTrade">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Currency Details Modal -->
+    <div id="currencyModal" class="modal">
+      <div class="modal-content large-modal">
+        <span class="close" id="closeCurrencyModal">&times;</span>
+        <h2 id="currencyModalTitle">Currency Details</h2>
+        <div class="currency-details">
+          <div class="currency-info-section">
+            <div class="currency-header-large">
+              <img
+                id="currencyModalIcon"
+                src=""
+                alt=""
+                class="currency-icon-large"
+              />
+              <div class="currency-text">
+                <h3 id="currencyModalName">Bitcoin</h3>
+                <span id="currencyModalSymbol">BTC</span>
+              </div>
+              <div class="currency-price-large">
+                <span id="currencyModalPrice">$43,567.89</span>
+                <span id="currencyModalChange" class="change positive"
+                  >+5.67%</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="currency-chart-section">
+            <h4>Price Chart (24h)</h4>
+            <canvas id="currencyDetailChart" width="600" height="300"></canvas>
+          </div>
+          <div class="currency-stats-section">
+            <div class="stat-grid">
+              <div class="stat-item">
+                <span class="stat-label">Market Cap</span>
+                <span class="stat-value" id="marketCap">$850.2B</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">24h Volume</span>
+                <span class="stat-value" id="volume24h">$28.5B</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">24h High</span>
+                <span class="stat-value" id="high24h">$44,123.45</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">24h Low</span>
+                <span class="stat-value" id="low24h">$42,890.12</span>
+              </div>
+            </div>
+          </div>
+          <div class="modal-buttons">
+            <button class="btn btn-primary" id="buyCurrencyBtn">Buy Now</button>
+            <button class="btn btn-secondary" id="addToWatchlistBtn">
+              Add to Watchlist
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>
